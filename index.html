@@ -152,6 +152,96 @@
 	pointer-events:none;
 	}
 
+.check-item{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+cursor:pointer;
+position:relative;
+font-size:16px;
+}
+
+.check-item input{
+display:none;
+}
+
+/* чекбокс */
+
+.checkmark{
+width:20px;
+height:20px;
+border-radius:6px;
+border:2px solid #d1b48c;
+display:inline-block;
+position:relative;
+transition:all .25s;
+}
+
+.checkmark::after{
+content:"";
+position:absolute;
+left:5px;
+top:1px;
+width:6px;
+height:12px;
+border:solid white;
+border-width:0 2px 2px 0;
+transform:rotate(45deg) scale(0);
+transition:transform .2s;
+}
+
+/* выбран */
+
+.check-item input:checked + .checkmark{
+background:#d1b48c;
+}
+
+.check-item input:checked + .checkmark::after{
+transform:rotate(45deg) scale(1);
+}
+
+/* радио */
+
+.radio{
+width:20px;
+height:20px;
+border-radius:50%;
+border:2px solid #d1b48c;
+display:inline-block;
+position:relative;
+transition:.25s;
+}
+
+.radio::after{
+content:"";
+position:absolute;
+width:10px;
+height:10px;
+background:#d1b48c;
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+transition:.2s;
+}
+
+.check-item input:checked + .radio::after{
+transform:translate(-50%,-50%) scale(1);
+}
+
+/* заголовки вопросов */
+
+.question{
+margin-top:18px;
+margin-bottom:10px;
+}
+
+.question p{
+margin-bottom:8px;
+font-weight:500;
+}
+		
 	.rsvp-form{
 max-width:500px;
 margin:30px auto;
@@ -310,21 +400,24 @@ background:#bfa37d;
 
 <div id="extraQuestions" class="extra">
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="moneyGift">
+<span class="checkmark"></span>
 <span>Денежный подарок</span>
 </label>
 
 <div class="question">
 <p>Будете один или с семьёй?</p>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="radio" name="guests" value="Один">
+<span class="radio"></span>
 <span>Буду один</span>
 </label>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="radio" name="guests" value="С семьёй">
+<span class="radio"></span>
 <span>Буду с семьёй</span>
 </label>
 </div>
@@ -332,29 +425,34 @@ background:#bfa37d;
 <div class="question">
 <p>Какой алкоголь предпочитаете?</p>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="drink" value="Красное вино">
+<span class="checkmark"></span>
 <span>Красное вино</span>
 </label>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="drink" value="Белое вино">
+<span class="checkmark"></span>
 <span>Белое вино</span>
 </label>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="drink" value="Шампанское">
+<span class="checkmark"></span>
 <span>Шампанское</span>
 </label>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="drink" value="Виски">
+<span class="checkmark"></span>
 <span>Виски</span>
 </label>
 
-<label class="checkbox-line">
+<label class="check-item">
 <input type="checkbox" name="drink" value="Водка">
-<span>Водка</span>
+<span class="checkmark"></span>
+<span class="text">Водка</span>
 </label>
 
 </div>
