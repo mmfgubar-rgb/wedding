@@ -86,7 +86,17 @@ p {
     margin: 0 auto 15px auto;
     font-style: italic; /* Курсив придаст тексту вид личного письма */
 }
-
+    
+.address {
+    font-family: 'Forum', serif; /* Используем тот же шрифт, что и в заголовках */
+    font-size: 22px;
+    font-style: normal; /* Убираем курсив, если он задан для обычных <p> */
+    color: #5a3e36;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+    
 /* Применим этот же стиль к подписям в таймере и форме */
 .block, .poll p, label {
     font-family: 'Cormorant Garamond', serif;
