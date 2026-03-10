@@ -194,7 +194,30 @@ display:block;
 margin-bottom:12px;
 cursor:pointer;
 }
+.checkbox-line{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+cursor:pointer;
+font-size:16px;
+}
 
+.checkbox-line input{
+width:auto;
+margin:0;
+}
+
+.question{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.question p{
+margin-bottom:8px;
+font-weight:500;
+}
+		
 .extra{
 display:none;
 margin-top:10px;
@@ -287,25 +310,54 @@ background:#bfa37d;
 
 <div id="extraQuestions" class="extra">
 
-<label class="checkbox">
+<label class="checkbox-line">
 <input type="checkbox" name="moneyGift">
-Денежный подарок
+<span>Денежный подарок</span>
 </label>
 
-<select name="guests">
-<option value="">Буду один или с семьёй?</option>
-<option>Буду один</option>
-<option>Буду с семьёй</option>
-</select>
+<div class="question">
+<p>Будете один или с семьёй?</p>
 
-<select name="drink">
-<option value="">Какой алкоголь предпочитаете?</option>
-<option>Красное вино</option>
-<option>Белое вино</option>
-<option>Шампанское</option>
-<option>Виски</option>
-<option>Водка</option>
-</select>
+<label class="checkbox-line">
+<input type="radio" name="guests" value="Один">
+<span>Буду один</span>
+</label>
+
+<label class="checkbox-line">
+<input type="radio" name="guests" value="С семьёй">
+<span>Буду с семьёй</span>
+</label>
+</div>
+
+<div class="question">
+<p>Какой алкоголь предпочитаете?</p>
+
+<label class="checkbox-line">
+<input type="checkbox" name="drink" value="Красное вино">
+<span>Красное вино</span>
+</label>
+
+<label class="checkbox-line">
+<input type="checkbox" name="drink" value="Белое вино">
+<span>Белое вино</span>
+</label>
+
+<label class="checkbox-line">
+<input type="checkbox" name="drink" value="Шампанское">
+<span>Шампанское</span>
+</label>
+
+<label class="checkbox-line">
+<input type="checkbox" name="drink" value="Виски">
+<span>Виски</span>
+</label>
+
+<label class="checkbox-line">
+<input type="checkbox" name="drink" value="Водка">
+<span>Водка</span>
+</label>
+
+</div>
 
 </div>
 
