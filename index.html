@@ -20,7 +20,16 @@
 	max-width:700px;
 	margin:auto;
 	}
-	
+		
+.ornament{
+margin-bottom:10px;
+}
+
+.ornament svg{
+width:140px;
+height:auto;
+}
+		
 	h1{
 	font-family:'Great Vibes',cursive;
 	font-size:clamp(40px,12vw,90px);
@@ -304,6 +313,18 @@
 
 <body> <canvas id="petals"></canvas>
 	<div class="container">
+
+<div class="ornament">
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 20 Q30 5 50 20 T95 20 T140 20 T185 20"
+stroke="#d1b48c"
+stroke-width="2"
+fill="none"
+stroke-linecap="round"/>
+<circle cx="100" cy="20" r="3" fill="#d1b48c"/>
+</svg>
+</div>
+		
 		<h1>Валерия & Стас</h1>
 		<p>Приглашаем на нашу свадьбу</p>
 		<div class="date">5 сентября 2026</div>
@@ -441,7 +462,36 @@
 	e.target.reset()
 	
 	})
-	
+
+const nameInput = document.querySelector('input[name="name"]')
+const formElements = document.querySelectorAll('#form input, #form textarea, #form button')
+
+formElements.forEach(el=>{
+if(el.name !== "name"){
+el.disabled = true
+}
+})
+
+nameInput.addEventListener("input",()=>{
+
+if(nameInput.value.trim().length > 1){
+
+formElements.forEach(el=>{
+el.disabled = false
+})
+
+}else{
+
+formElements.forEach(el=>{
+if(el.name !== "name"){
+el.disabled = true
+}
+})
+
+}
+
+})
+		
 	/* показать доп вопросы */
 	
 	const attendRadios=document.querySelectorAll('input[name="attend"]')
