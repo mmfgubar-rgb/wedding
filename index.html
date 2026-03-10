@@ -17,10 +17,10 @@
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /* Нежный природный фон */
-            background: radial-gradient(circle at top, #ffffff 0%, #f4f7f2 50%, #e9ede4 100%);
+            /* Радиальный градиент для глубины */
+            background: radial-gradient(circle at top, #ffffff 0%, #faf7f5 50%, #f0edea 100%);
             background-attachment: fixed;
-            color: #555e52; /* Мягкий графитово-зеленый */
+            color: #4a4440;
             text-align: center;
             overflow-x: hidden;
         }
@@ -34,6 +34,7 @@
 
         h1 {
             font-family: 'Great Vibes', cursive !important;
+            /* Адаптивный размер заголовка */
             font-size: clamp(45px, 12vw, 90px);
             line-height: 1.2;
             font-weight: 400;
@@ -41,8 +42,8 @@
             white-space: nowrap;
             display: block;
             
-            /* Градиент в стиле рустик: от оливки к бежу */
-            background: linear-gradient(to right, #8da399, #b5ba9d, #d4cfb4);
+            /* Градиент из палитры дресс-кода */
+            background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -53,7 +54,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 19px;
             font-style: italic;
-            color: #6b7568; /* Цвет сухоцветов */
+            color: #5a3e36;
             margin: 15px 0;
         }
 
@@ -64,7 +65,7 @@
             letter-spacing: 3px;
             font-size: 24px;
             margin-bottom: 30px;
-            color: #8da399; /* Приглушенный шалфей */
+            color: #6b3c2f;
         }
 
         .date {
@@ -72,7 +73,6 @@
             font-weight: 400;
             margin-top: 10px;
             font-family: 'Playfair Display', serif;
-            color: #8da399;
         }
 
         .timer {
@@ -84,18 +84,18 @@
         }
 
         .block {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(141, 163, 153, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(90, 62, 54, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .number {
             font-size: 24px;
             font-weight: 600;
-            color: #8da399;
+            color: #6b3c2f;
         }
 
         .photo {
@@ -104,7 +104,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-top: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 5px solid white;
         }
 
@@ -120,7 +120,7 @@
             height: 45px;
             border-radius: 50%;
             border: 2px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .gallery {
@@ -151,10 +151,9 @@
             padding: 14px;
             margin: 10px 0;
             border-radius: 10px;
-            border: 1px solid #d1d9cf;
+            border: 1px solid #ddd;
             font-family: 'Montserrat';
             box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.8);
         }
 
         button {
@@ -163,17 +162,16 @@
             margin-top: 20px;
             border: none;
             border-radius: 12px;
-            background: #8da399; /* Шалфейный вместо коричневого */
+            background: #6b3c2f; /* Коричневый из палитры */
             color: white;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(141, 163, 153, 0.3);
         }
 
         button:hover {
-            background: #7a8f85;
+            background: #5a3e36;
             transform: translateY(-2px);
         }
 
@@ -190,7 +188,6 @@
                 grid-template-columns: repeat(4, 120px);
             }
         }
-
     </style>
 </head>
 
