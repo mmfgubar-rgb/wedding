@@ -7,7 +7,7 @@
 
 <title>Валерия & Стас</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">  
+<link href="https://fonts.googleapis.com" rel="stylesheet">
 
 <style>
   
@@ -35,12 +35,13 @@ h1 {
   animation: fadeInUp 1.5s ease-out 0.5s forwards; /* Появится на 0.5с позже */
 }
   
-body{
-margin:0;
-font-family:Montserrat;
-background:#faf7f5;
-color:#333;
-text-align:center;
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif; /* Основной шрифт для мелких деталей */
+  background: #faf7f5;
+  color: #4a4440; /* Чуть мягче черного */
+  text-align: center;
+  line-height: 1.6;
 }
 
 .container{
@@ -72,11 +73,33 @@ h1 {
   overflow: visible;
 }
 
+/* Стили для основного описания и приглашения */
+p {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-style: italic; /* Курсив делает текст более "рукописным" */
+  color: #5a3e36;
+  max-width: 90%;
+  margin: 15px auto;
+}
 
-h2{
-font-family:'Playfair Display';
-font-weight:400;
-margin-bottom:20px;
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #6b3c2f;
+}
+
+/* Декоративная деталь: увеличим первую букву в обращении */
+.container p::first-letter {
+  font-family: 'Great Vibes', cursive;
+  font-size: 35px;
+  line-height: 0;
+  margin-right: 2px;
+  color: #a38b7a;
 }
 
 .date{
