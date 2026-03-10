@@ -37,12 +37,14 @@ h1 {
   
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif; /* Основной шрифт для мелких деталей */
-  background: #faf7f5;
-  color: #4a4440; /* Чуть мягче черного */
+  font-family: 'Montserrat', sans-serif;
+  /* Мягкий градиент: от светлого кремового к нежному песочному */
+  background: radial-gradient(circle at top, #ffffff 0%, #faf7f5 50%, #f0edea 100%);
+  background-attachment: fixed; /* Фон не движется при скролле, создавая глубину */
+  color: #4a4440;
   text-align: center;
-  line-height: 1.6;
 }
+
 
 .container{
 padding:60px 20px;
@@ -111,12 +113,15 @@ gap:10px;
 margin-top:30px;
 }
 
-.block{
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+.block {
+  background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый */
+  backdrop-filter: blur(5px); /* Легкое размытие под блоком */
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(90, 62, 54, 0.05); /* Очень мягкая тень */
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 
 .number{
 font-size:24px;
