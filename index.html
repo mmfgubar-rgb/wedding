@@ -25,14 +25,25 @@ max-width:700px;
 margin:auto;
 }
 
-h1{
-font-family:'Great Vibes', cursive;
-font-size:64px;
-line-height:1.3;
-font-weight:400;
-color:#5a3e36;
-letter-spacing:2px;
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px; /* Можно немного уменьшить, если не влезает на мобильных */
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: 2px;
+  
+  /* Настройка градиента */
+  background: linear-gradient(45deg, #5a3e36, #b8978e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  /* В одну строку */
+  display: block;
+  white-space: nowrap;
 }
+
 
 h2{
 font-family:'Playfair Display';
@@ -158,7 +169,7 @@ justify-content:center;
 
 <div class="container">
 
-<h1>Валерия<br>&<br>Стас</h1>
+<h1>Валерия & Стас</h1>
 
 <p>Приглашаем на нашу свадьбу</p>
 
