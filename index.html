@@ -118,14 +118,6 @@
 	overflow:hidden;
 	}
 	
-	input, textarea, button{
-	width:100%;
-	padding:14px;
-	margin-bottom:15px;
-	border-radius:10px;
-	border:1px solid #ddd;
-	font-family:Montserrat;
-	}
 	
 	button{
 	background:#d1b48c;
@@ -444,10 +436,6 @@ margin-bottom:8px;
 font-weight:500;
 }
 		
-.extra{
-display:none;
-margin-top:10px;
-}
 
 .rsvp-form button{
 width:100%;
@@ -635,8 +623,7 @@ background:#bfa37d;
 	name:f.get("name"),
 	message:f.get("message"),
 	moneyGift:f.get("moneyGift")?"Да":"Нет",
-	drink:f.get("drink")
-	}
+drink:f.getAll("drink")	}
 	
 	fetch(scriptURL,{
 	method:"POST",
@@ -704,20 +691,6 @@ extra.classList.remove("show")
 	
 	draw()
 
-	const attendRadios=document.querySelectorAll('input[name="attend"]')
-const extra=document.getElementById("extraQuestions")
-
-attendRadios.forEach(r=>{
-r.addEventListener("change",()=>{
-
-if(r.value==="Буду" && r.checked){
-extra.style.display="block"
-}else if(r.value==="Не смогу" && r.checked){
-extra.style.display="none"
-}
-
-})
-})
 	</script>
 </body>
 
