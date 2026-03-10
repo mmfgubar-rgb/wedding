@@ -1,129 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Валерия и Стас</title>
+<title>Владислав & Светлана</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
 font-family:Montserrat;
-background:#f7f3f0;
-color:#3c3c3c;
+background:#faf7f5;
+color:#333;
 text-align:center;
-overflow-x:hidden;
 }
 
-section{
-padding:80px 20px;
-max-width:800px;
+.container{
+padding:60px 20px;
+max-width:700px;
 margin:auto;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-section.visible{
-opacity:1;
-transform:none;
 }
 
 h1{
 font-family:'Playfair Display';
-font-size:60px;
-margin:0;
+font-size:42px;
+line-height:1.2;
 }
 
 h2{
 font-family:'Playfair Display';
 font-weight:400;
+margin-bottom:20px;
 }
 
 .date{
-font-size:28px;
-margin-top:20px;
+font-size:20px;
+margin-top:10px;
 }
 
 .timer{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:40px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:30px;
 }
 
-.time-block{
+.block{
 background:white;
-padding:20px;
+padding:15px;
 border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-min-width:80px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-.time-number{
-font-size:32px;
+.number{
+font-size:24px;
 font-weight:600;
 }
 
 .photo{
-width:220px;
-height:220px;
+width:180px;
+height:180px;
 border-radius:50%;
 object-fit:cover;
-margin-top:30px;
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
+margin-top:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 .colors{
 display:flex;
 justify-content:center;
-gap:15px;
-margin-top:30px;
+gap:12px;
+margin-top:20px;
 }
 
 .color{
-width:40px;
-height:40px;
+width:35px;
+height:35px;
 border-radius:50%;
 }
 
-form{
-margin-top:40px;
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.map{
+margin-top:20px;
+border-radius:10px;
+overflow:hidden;
 }
 
 input,textarea{
-width:80%;
+width:100%;
 padding:12px;
-margin:10px 0;
+margin:8px 0;
 border-radius:8px;
-border:1px solid #ccc;
+border:1px solid #ddd;
 font-family:Montserrat;
 }
 
 button{
-margin-top:20px;
-padding:14px 40px;
+width:100%;
+padding:14px;
+margin-top:15px;
 border:none;
 border-radius:10px;
 background:#8c7b74;
 color:white;
 font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#6f5f59;
 }
 
 .poll{
 text-align:left;
-display:inline-block;
-margin-top:20px;
+margin-top:10px;
 }
 
 canvas{
@@ -133,6 +133,19 @@ left:0;
 pointer-events:none;
 }
 
+@media(min-width:768px){
+
+h1{
+font-size:60px;
+}
+
+.timer{
+grid-template-columns:repeat(4,120px);
+justify-content:center;
+}
+
+}
+
 </style>
 </head>
 
@@ -140,82 +153,98 @@ pointer-events:none;
 
 <canvas id="petals"></canvas>
 
-<section>
+<div class="container">
 
-<h1>Валерия<br>&<br>Стас</h1>
+<h1>Владислав<br>&<br>Светлана</h1>
 
 <p>Приглашаем на нашу свадьбу</p>
 
 <div class="date">5 сентября 2026</div>
 
-<p>14:00<br>Ресторан "Дом Палешука"</p>
-
 <div class="timer">
 
-<div class="time-block">
-<div id="days" class="time-number"></div>
-<div>дней</div>
+<div class="block">
+<div id="d" class="number"></div>
+дней
 </div>
 
-<div class="time-block">
-<div id="hours" class="time-number"></div>
-<div>часов</div>
+<div class="block">
+<div id="h" class="number"></div>
+часов
 </div>
 
-<div class="time-block">
-<div id="minutes" class="time-number"></div>
-<div>минут</div>
+<div class="block">
+<div id="m" class="number"></div>
+мин
 </div>
 
-<div class="time-block">
-<div id="seconds" class="time-number"></div>
-<div>секунд</div>
+<div class="block">
+<div id="s" class="number"></div>
+сек
 </div>
 
 </div>
 
-</section>
+</div>
 
-<section>
+<div class="container">
 
 <h2>Дорогой гость</h2>
 
-<p>
-Мы будем счастливы разделить с вами
-самый важный день нашей жизни.
-</p>
+<p>Мы будем счастливы разделить с вами самый важный день нашей жизни.</p>
 
 <img class="photo" src="photo.jpg">
 
-</section>
+</div>
 
-<section>
-
-<h2>Пожелания по подаркам</h2>
-
-<p>
-Ваше присутствие — лучший подарок.
-Но будем рады любой альтернативе
-букетам в денежном эквиваленте.
-</p>
-
-</section>
-
-<section>
+<div class="container">
 
 <h2>Дресс-код</h2>
 
 <div class="colors">
+
 <div class="color" style="background:#d7d0c7"></div>
 <div class="color" style="background:#efe5c8"></div>
 <div class="color" style="background:#bcd4d6"></div>
 <div class="color" style="background:#6b3c2f"></div>
-<div class="color" style="background:#000"></div>
+
 </div>
 
-</section>
+</div>
 
-<section>
+<div class="container">
+
+<h2>Фотогалерея</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h2>Место проведения</h2>
+
+<div class="map">
+
+<iframe
+src="https://maps.google.com/maps?q=Ляховичи&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="250"
+frameborder="0">
+</iframe>
+
+</div>
+
+</div>
+
+<div class="container">
 
 <h2>Подтвердите присутствие</h2>
 
@@ -223,7 +252,7 @@ pointer-events:none;
 
 <input name="name" placeholder="Ваше имя" required>
 
-<textarea name="message" placeholder="Сообщение молодожёнам"></textarea>
+<textarea name="message" placeholder="Сообщение"></textarea>
 
 <label>
 <input type="checkbox" name="moneyGift">
@@ -237,59 +266,34 @@ pointer-events:none;
 <label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br>
 <label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br>
 <label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br>
-<label><input type="radio" name="drink" value="Виски/коньяк"> Виски</label><br>
-<label><input type="radio" name="drink" value="Водка"> Водка</label><br>
-<label><input type="radio" name="drink" value="Не пью"> Не пью алкоголь</label>
+<label><input type="radio" name="drink" value="Виски"> Виски</label><br>
+<label><input type="radio" name="drink" value="Водка"> Водка</label>
 
 </div>
-
-<br>
 
 <button>Отправить</button>
 
 </form>
 
-</section>
+</div>
 
 <script>
 
-// таймер
-
-const wedding = new Date("2026-09-05T14:00:00")
+const wedding=new Date("2026-09-05T14:00:00")
 
 setInterval(()=>{
 
 let now=new Date()
 let diff=wedding-now
 
-let d=Math.floor(diff/(1000*60*60*24))
-let h=Math.floor(diff/(1000*60*60)%24)
-let m=Math.floor(diff/(1000*60)%60)
-let s=Math.floor(diff/1000%60)
-
-days.innerText=d
-hours.innerText=h
-minutes.innerText=m
-seconds.innerText=s
+d.innerText=Math.floor(diff/86400000)
+h.innerText=Math.floor(diff/3600000)%24
+m.innerText=Math.floor(diff/60000)%60
+s.innerText=Math.floor(diff/1000)%60
 
 },1000)
 
-
-// анимация появления
-
-const sections=document.querySelectorAll("section")
-
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100)
-sec.classList.add("visible")
-})
-})
-
-
-// отправка формы
-
-const scriptURL="PASTE_GOOGLE_SCRIPT_URL"
+const scriptURL="PASTE_SCRIPT_URL"
 
 document.getElementById("form").addEventListener("submit",e=>{
 
@@ -310,22 +314,20 @@ body:JSON.stringify(data)
 })
 
 alert("Спасибо! Ответ отправлен ❤️")
+
 e.target.reset()
 
 })
 
-
-// падающие лепестки
-
 const canvas=document.getElementById("petals")
 const ctx=canvas.getContext("2d")
 
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
+canvas.width=innerWidth
+canvas.height=innerHeight
 
 let petals=[]
 
-for(let i=0;i<30;i++){
+for(let i=0;i<25;i++){
 petals.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
@@ -335,6 +337,7 @@ d:Math.random()*2
 }
 
 function draw(){
+
 ctx.clearRect(0,0,canvas.width,canvas.height)
 
 ctx.fillStyle="rgba(255,182,193,0.7)"
@@ -349,6 +352,7 @@ if(p.y>canvas.height)p.y=0
 })
 
 requestAnimationFrame(draw)
+
 }
 
 draw()
