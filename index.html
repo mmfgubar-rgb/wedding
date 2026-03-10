@@ -9,6 +9,7 @@
 
 <link href="https://fonts.googleapis.com" rel="stylesheet">
 
+
 <style>
   
 /* Описываем саму анимацию */
@@ -53,24 +54,24 @@ margin:auto;
 }
 
 h1 {
-  font-family: 'Great Vibes', cursive;
-  /* Адаптивный размер: подстраивается под экран, чтобы не обрезаться */
-  font-size: clamp(40px, 12vw, 90px); 
+  font-family: 'Great Vibes', cursive !important; /* !important гарантирует применение */
+  font-size: clamp(40px, 12vw, 90px);
   line-height: 1.2;
   font-weight: 400;
-  padding: 10px 0;
-  margin: 0;
   
-  /* Градиент из вашей палитры дресс-кода */
+  /* Градиент */
   background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 
-  /* Запрет переноса на новую строку */
+  /* В одну строку */
   white-space: nowrap;
   display: block;
+  margin: 0 auto 20px;
 }
+
 
 /* Стили для основного описания и приглашения */
 p {
