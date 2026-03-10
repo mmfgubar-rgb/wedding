@@ -52,25 +52,22 @@ margin:auto;
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  /* clamp(минимум, предпочтение, максимум) */
-  font-size: clamp(35px, 11vw, 90px); 
-  line-height: 1.3;
+  /* Адаптивный размер: подстраивается под экран, чтобы не обрезаться */
+  font-size: clamp(40px, 12vw, 90px); 
+  line-height: 1.2;
   font-weight: 400;
-  letter-spacing: 1px;
+  padding: 10px 0;
+  margin: 0;
   
- /* Градиент из палитры дресс-кода: от #6b3c2f (коричневый) к #d7d0c7 (песочный) */
+  /* Градиент из вашей палитры дресс-кода */
   background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
 
-  
-  /* Центрирование и предотвращение переноса */
-  display: block;
+  /* Запрет переноса на новую строку */
   white-space: nowrap;
-  margin: 0 auto 20px;
-  overflow: visible;
+  display: block;
 }
 
 /* Стили для основного описания и приглашения */
