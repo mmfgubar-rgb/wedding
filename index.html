@@ -151,6 +151,72 @@
 	left:0;
 	pointer-events:none;
 	}
+
+	.rsvp-form{
+max-width:500px;
+margin:30px auto;
+padding:30px;
+background:white;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+text-align:left;
+}
+
+.rsvp-form input,
+.rsvp-form textarea,
+.rsvp-form select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border-radius:10px;
+border:1px solid #e3e3e3;
+font-size:16px;
+box-sizing:border-box;
+}
+
+.rsvp-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.radio-group{
+margin-bottom:15px;
+}
+
+.radio-group label{
+display:block;
+margin-bottom:8px;
+cursor:pointer;
+}
+
+.checkbox{
+display:block;
+margin-bottom:12px;
+cursor:pointer;
+}
+
+.extra{
+display:none;
+margin-top:10px;
+}
+
+.rsvp-form button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+background:#d1b48c;
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.rsvp-form button:hover{
+background:#bfa37d;
+}
+		
 	</style>
 </head>
 
@@ -198,14 +264,62 @@
 		<div class="map"> <iframe src="https://maps.google.com/maps?q=Ляховичи&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" frameborder="0"></iframe> </div>
 	</div>
 	<div class="separator"></div>
-	<div class="container">
-		<h2>Подтвердите присутствие</h2>
-		<form id="form"> <input name="name" placeholder="Ваше имя" required> <textarea name="message" placeholder="Сообщение"></textarea> <label>
-<input type="checkbox" name="moneyGift"> Денежный подарок
+
+<div class="container">
+
+<h2>Подтвердите присутствие</h2>
+
+<form id="form" class="rsvp-form">
+
+<input type="text" name="name" placeholder="Имя и фамилия" required>
+
+<div class="radio-group">
+<label>
+<input type="radio" name="attend" value="Буду" required>
+Буду присутствовать
 </label>
-			<p>Какой алкоголь предпочитаете?</p> <label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br> <label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br> <label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br> <label><input type="radio" name="drink" value="Виски"> Виски</label><br> <label><input type="radio" name="drink" value="Водка"> Водка</label> <button type="submit">Отправить</button> </form>
-	</div>
+
+<label>
+<input type="radio" name="attend" value="Не смогу">
+К сожалению не смогу
+</label>
+</div>
+
+<div id="extraQuestions" class="extra">
+
+<label class="checkbox">
+<input type="checkbox" name="moneyGift">
+Денежный подарок
+</label>
+
+<select name="guests">
+<option value="">Буду один или с семьёй?</option>
+<option>Буду один</option>
+<option>Буду с семьёй</option>
+</select>
+
+<select name="drink">
+<option value="">Какой алкоголь предпочитаете?</option>
+<option>Красное вино</option>
+<option>Белое вино</option>
+<option>Шампанское</option>
+<option>Виски</option>
+<option>Водка</option>
+</select>
+
+</div>
+
+<textarea name="message" placeholder="Ваше пожелание молодожёнам"></textarea>
+
+<button type="submit">Отправить</button>
+
+</form>
+
+</div>
+	
 	<script>
+
+		
 	const wedding = new Date("2026-09-05T14:00:00")
 	
 	setInterval(()=>{
@@ -283,6 +397,21 @@
 	}
 	
 	draw()
+
+	const attendRadios=document.querySelectorAll('input[name="attend"]')
+const extra=document.getElementById("extraQuestions")
+
+attendRadios.forEach(r=>{
+r.addEventListener("change",()=>{
+
+if(r.value==="Буду" && r.checked){
+extra.style.display="block"
+}else if(r.value==="Не смогу" && r.checked){
+extra.style.display="none"
+}
+
+})
+})
 	</script>
 </body>
 
