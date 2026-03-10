@@ -1,216 +1,194 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Валерия & Стас</title>
+    
+    <!-- Подключаем шрифты: Great Vibes для заголовка и Playfair Display для текста -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">  
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-<title>Валерия & Стас</title>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            /* Радиальный градиент для глубины */
+            background: radial-gradient(circle at top, #ffffff 0%, #faf7f5 50%, #f0edea 100%);
+            background-attachment: fixed;
+            color: #4a4440;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-<link href="https://fonts.googleapis.com" rel="stylesheet">
+        .container {
+            padding: 60px 20px;
+            max-width: 700px;
+            margin: auto;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
 
+        h1 {
+            font-family: 'Great Vibes', cursive !important;
+            /* Адаптивный размер заголовка */
+            font-size: clamp(45px, 12vw, 90px);
+            line-height: 1.2;
+            font-weight: 400;
+            margin: 0 auto 20px;
+            white-space: nowrap;
+            display: block;
+            
+            /* Градиент из палитры дресс-кода */
+            background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
 
-<style>
-  
-/* Описываем саму анимацию */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* Смещение вниз на 20px */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); /* Возврат в исходную точку */
-  }
-}
+        p {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-style: italic;
+            color: #5a3e36;
+            margin: 15px 0;
+        }
 
-/* Применяем её к заголовку */
-h1 {
-  /* ... ваши предыдущие стили (градиент, clamp и т.д.) ... */
-  animation: fadeInUp 1.5s ease-out forwards;
-}
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #6b3c2f;
+        }
 
-/* Опционально: добавьте небольшую задержку для текста под заголовком */
-.container p:first-of-type {
-  opacity: 0;
-  animation: fadeInUp 1.5s ease-out 0.5s forwards; /* Появится на 0.5с позже */
-}
-  
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  /* Мягкий градиент: от светлого кремового к нежному песочному */
-  background: radial-gradient(circle at top, #ffffff 0%, #faf7f5 50%, #f0edea 100%);
-  background-attachment: fixed; /* Фон не движется при скролле, создавая глубину */
-  color: #4a4440;
-  text-align: center;
-}
+        .date {
+            font-size: 22px;
+            font-weight: 400;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
 
+        .timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
 
-.container{
-padding:60px 20px;
-max-width:700px;
-margin:auto;
-}
+        .block {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(90, 62, 54, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-h1 {
-  font-family: 'Great Vibes', cursive !important; /* !important гарантирует применение */
-  font-size: clamp(40px, 12vw, 90px);
-  line-height: 1.2;
-  font-weight: 400;
-  
-  /* Градиент */
-  background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+        .number {
+            font-size: 24px;
+            font-weight: 600;
+            color: #6b3c2f;
+        }
 
-  /* В одну строку */
-  white-space: nowrap;
-  display: block;
-  margin: 0 auto 20px;
-}
+        .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 5px solid white;
+        }
 
+        .colors {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-/* Стили для основного описания и приглашения */
-p {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  font-style: italic; /* Курсив делает текст более "рукописным" */
-  color: #5a3e36;
-  max-width: 90%;
-  margin: 15px auto;
-}
+        .color {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 22px;
-  margin-bottom: 25px;
-  color: #6b3c2f;
-}
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
 
-/* Декоративная деталь: увеличим первую букву в обращении */
-.container p::first-letter {
-  font-family: 'Great Vibes', cursive;
-  font-size: 35px;
-  line-height: 0;
-  margin-right: 2px;
-  color: #a38b7a;
-}
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
 
-.date{
-font-size:20px;
-margin-top:10px;
-}
+        .gallery img:hover {
+            transform: scale(1.02);
+        }
 
-.timer{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin-top:30px;
-}
+        .map {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
 
-.block {
-  background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый */
-  backdrop-filter: blur(5px); /* Легкое размытие под блоком */
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(90, 62, 54, 0.05); /* Очень мягкая тень */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-family: 'Montserrat';
+            box-sizing: border-box;
+        }
 
+        button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            background: #6b3c2f; /* Коричневый из палитры */
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-.number{
-font-size:24px;
-font-weight:600;
-}
+        button:hover {
+            background: #5a3e36;
+            transform: translateY(-2px);
+        }
 
-.photo{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-margin-top:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
 
-.colors{
-display:flex;
-justify-content:center;
-gap:12px;
-margin-top:20px;
-}
-
-.color{
-width:35px;
-height:35px;
-border-radius:50%;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-
-.map{
-margin-top:20px;
-border-radius:10px;
-overflow:hidden;
-}
-
-input,textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ddd;
-font-family:Montserrat;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:15px;
-border:none;
-border-radius:10px;
-background: #6b3c2f;
-color:white;
-font-size:16px;
-}
-
-.poll{
-text-align:left;
-margin-top:10px;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-pointer-events:none;
-}
-
-@media(min-width:768px){
-
-.timer{
-grid-template-columns:repeat(4,120px);
-justify-content:center;
-}
-
-}
-
-</style>
+        @media(min-width: 768px) {
+            .timer {
+                grid-template-columns: repeat(4, 120px);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -218,212 +196,115 @@ justify-content:center;
 <canvas id="petals"></canvas>
 
 <div class="container">
-
-<h1>Валерия & Стас</h1>
-
-<p>Приглашаем на нашу свадьбу</p>
-
-<div class="date">5 сентября 2026</div>
-
-<div class="date">Ждем Вас на свадьбу через:</div>
-
-
-<div class="timer">
-
-<div class="block">
-<div id="d" class="number"></div>
-дней
-</div>
-
-<div class="block">
-<div id="h" class="number"></div>
-часов
-</div>
-
-<div class="block">
-<div id="m" class="number"></div>
-мин
-</div>
-
-<div class="block">
-<div id="s" class="number"></div>
-сек
-</div>
-
-</div>
-
+    <h1>Валерия & Стас</h1>
+    <p>Приглашаем на нашу свадьбу</p>
+    <div class="date">5 сентября 2026</div>
+    
+    <div class="timer">
+        <div class="block"><div id="d" class="number"></div>дней</div>
+        <div class="block"><div id="h" class="number"></div>часов</div>
+        <div class="block"><div id="m" class="number"></div>мин</div>
+        <div class="block"><div id="s" class="number"></div>сек</div>
+    </div>
 </div>
 
 <div class="container">
-
-<h2>Дорогой гость</h2>
-
-<p>Мы рабды сообщить Вам, что 05.09.2026 состоится самое главное торжество в нашей жизни - день нашей свадьбы! Приглашаем Вас разделить с нами радость этого незабываемого дня.</p>
-
-<img class="photo" src="photo.jpg">
-
+    <h2>Дорогой гость</h2>
+    <p>Мы рады сообщить Вам, что 05.09.2026 состоится самое главное торжество в нашей жизни — день нашей свадьбы! Приглашаем Вас разделить с нами радость этого незабываемого дня.</p>
+    <img class="photo" src="photo.jpg" alt="Мы">
 </div>
 
 <div class="container">
-
-<h2>Дресс-код</h2>
-
-<div class="colors">
-
-<div class="color" style="background:#d7d0c7"></div>
-<div class="color" style="background:#efe5c8"></div>
-<div class="color" style="background:#bcd4d6"></div>
-<div class="color" style="background:#6b3c2f"></div>
-
-</div>
-
+    <h2>Дресс-код</h2>
+    <p>Будем признательны, если при выборе нарядов вы придержитесь нашей палитры:</p>
+    <div class="colors">
+        <div class="color" style="background:#d7d0c7"></div>
+        <div class="color" style="background:#efe5c8"></div>
+        <div class="color" style="background:#bcd4d6"></div>
+        <div class="color" style="background:#6b3c2f"></div>
+    </div>
 </div>
 
 <div class="container">
-
-<h2>Фотогалерея</h2>
-
-<div class="gallery">
-
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-
-</div>
-
+    <h2>Фотогалерея</h2>
+    <div class="gallery">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+    </div>
 </div>
 
 <div class="container">
-
-<h2>Место проведения</h2>
-
-<div class="map">
-
-<iframe
-src="https://maps.google.com/maps?q=Ляховичи&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%"
-height="250"
-frameborder="0">
-</iframe>
-
-</div>
-
+    <h2>Место проведения</h2>
+    <div class="map">
+        <iframe src="https://maps.google.com" width="100%" height="300" frameborder="0"></iframe>
+    </div>
 </div>
 
 <div class="container">
-
-<h2>Подтвердите присутствие</h2>
-
-<form id="form">
-
-<input name="name" placeholder="Ваше имя" required>
-
-<textarea name="message" placeholder="Сообщение"></textarea>
-
-<label>
-<input type="checkbox" name="moneyGift">
-Денежный подарок
-</label>
-
-<div class="poll">
-
-<p>Какой алкоголь предпочитаете?</p>
-
-<label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br>
-<label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br>
-<label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br>
-<label><input type="radio" name="drink" value="Виски"> Виски</label><br>
-<label><input type="radio" name="drink" value="Водка"> Водка</label>
-
-</div>
-
-<button>Отправить</button>
-
-</form>
-
+    <h2>Подтвердите присутствие</h2>
+    <form id="form">
+        <input name="name" placeholder="Ваше имя" required>
+        <textarea name="message" placeholder="Ваши пожелания"></textarea>
+        <label style="display: block; margin: 10px 0; font-family: 'Playfair Display';">
+            <input type="checkbox" name="moneyGift" style="width: auto;"> Предпочту денежный подарок
+        </label>
+        <div style="text-align:left; margin-top:20px;">
+            <p style="font-style: normal; font-weight: bold;">Какой алкоголь предпочитаете?</p>
+            <label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br>
+            <label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br>
+            <label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br>
+            <label><input type="radio" name="drink" value="Крепкие напитки"> Крепкие напитки</label>
+        </div>
+        <button type="submit">Отправить ответ</button>
+    </form>
 </div>
 
 <script>
+    // Таймер обратного отсчета
+    const wedding = new Date("2026-09-05T14:00:00");
+    const d = document.getElementById("d"), h = document.getElementById("h"), m = document.getElementById("m"), s = document.getElementById("s");
 
-const wedding=new Date("2026-09-05T14:00:00")
+    setInterval(() => {
+        let now = new Date();
+        let diff = wedding - now;
+        d.innerText = Math.floor(diff / 86400000);
+        h.innerText = Math.floor(diff / 3600000) % 24;
+        m.innerText = Math.floor(diff / 60000) % 60;
+        s.innerText = Math.floor(diff / 1000) % 60;
+    }, 1000);
 
-setInterval(()=>{
+    // Лепестки
+    const canvas = document.getElementById("petals");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let petals = [];
+    for(let i=0; i<25; i++) {
+        petals.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*4+2, d: Math.random()*1+0.5 });
+    }
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(215, 208, 199, 0.5)"; 
+        petals.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fill();
+            p.y += p.d;
+            if(p.y > canvas.height) p.y = -10;
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
 
-let now=new Date()
-let diff=wedding-now
-
-d.innerText=Math.floor(diff/86400000)
-h.innerText=Math.floor(diff/3600000)%24
-m.innerText=Math.floor(diff/60000)%60
-s.innerText=Math.floor(diff/1000)%60
-
-},1000)
-
-const scriptURL="PASTE_SCRIPT_URL"
-
-document.getElementById("form").addEventListener("submit",e=>{
-
-e.preventDefault()
-
-let f=new FormData(e.target)
-
-let data={
-name:f.get("name"),
-message:f.get("message"),
-moneyGift:f.get("moneyGift")?"Да":"Нет",
-drink:f.get("drink")
-}
-
-fetch(scriptURL,{
-method:"POST",
-body:JSON.stringify(data)
-})
-
-alert("Спасибо! Ответ отправлен ❤️")
-
-e.target.reset()
-
-})
-
-const canvas=document.getElementById("petals")
-const ctx=canvas.getContext("2d")
-
-canvas.width=innerWidth
-canvas.height=innerHeight
-
-let petals=[]
-
-for(let i=0;i<25;i++){
-petals.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*4+2,
-d:Math.random()*2
-})
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-ctx.fillStyle="rgba(255,182,193,0.7)"
-
-petals.forEach(p=>{
-ctx.beginPath()
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
-ctx.fill()
-
-p.y+=p.d
-if(p.y>canvas.height)p.y=0
-})
-
-requestAnimationFrame(draw)
-
-}
-
-draw()
-
+    // Обработка формы
+    const scriptURL = "PASTE_SCRIPT_URL";
+    document.getElementById("form").addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Спасибо! Мы получили ваш ответ ❤️");
+        e.target.reset();
+    });
 </script>
 
 </body>
