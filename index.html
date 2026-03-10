@@ -242,26 +242,162 @@ margin-bottom:8px;
 font-weight:500;
 }
 		
-	.rsvp-form{
+.rsvp-form{
 max-width:500px;
 margin:30px auto;
-padding:30px;
+padding:35px;
 background:white;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+border-radius:18px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
 text-align:left;
 }
 
-.rsvp-form input,
-.rsvp-form textarea,
-.rsvp-form select{
+.rsvp-form input[type="text"],
+.rsvp-form textarea{
 width:100%;
 padding:14px;
-margin-bottom:15px;
+margin-bottom:18px;
 border-radius:10px;
 border:1px solid #e3e3e3;
 font-size:16px;
-box-sizing:border-box;
+}
+
+.rsvp-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+/* КНОПКИ БУДУ / НЕ БУДУ */
+
+.attend-buttons{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.attend-btn{
+flex:1;
+cursor:pointer;
+}
+
+.attend-btn input{
+display:none;
+}
+
+.attend-btn span{
+display:block;
+text-align:center;
+padding:12px;
+border-radius:30px;
+border:2px solid #d1b48c;
+transition:.3s;
+}
+
+.attend-btn input:checked + span{
+background:#d1b48c;
+color:white;
+}
+
+/* ДОП ВОПРОСЫ */
+
+.extra{
+max-height:0;
+overflow:hidden;
+transition:all .5s ease;
+}
+
+.extra.show{
+max-height:600px;
+margin-bottom:10px;
+}
+
+/* КАСТОМНЫЕ ЧЕКБОКСЫ */
+
+.check-item{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+cursor:pointer;
+}
+
+.check-item input{
+display:none;
+}
+
+.checkmark{
+width:20px;
+height:20px;
+border-radius:6px;
+border:2px solid #d1b48c;
+position:relative;
+}
+
+.checkmark::after{
+content:"";
+position:absolute;
+left:5px;
+top:1px;
+width:6px;
+height:12px;
+border:solid white;
+border-width:0 2px 2px 0;
+transform:rotate(45deg) scale(0);
+transition:.2s;
+}
+
+.check-item input:checked + .checkmark{
+background:#d1b48c;
+}
+
+.check-item input:checked + .checkmark::after{
+transform:rotate(45deg) scale(1);
+}
+
+/* РАДИО */
+
+.radio{
+width:20px;
+height:20px;
+border-radius:50%;
+border:2px solid #d1b48c;
+position:relative;
+}
+
+.radio::after{
+content:"";
+width:10px;
+height:10px;
+background:#d1b48c;
+border-radius:50%;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+transition:.2s;
+}
+
+.check-item input:checked + .radio::after{
+transform:translate(-50%,-50%) scale(1);
+}
+
+/* КНОПКА */
+
+.send-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+background:#d1b48c;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+.send-btn:hover{
+background:#bfa37d;
+transform:translateY(-2px);
 }
 
 .rsvp-form textarea{
@@ -386,16 +522,18 @@ background:#bfa37d;
 
 <input type="text" name="name" placeholder="Имя и фамилия" required>
 
-<div class="radio-group">
-<label>
+<div class="attend-buttons">
+
+<label class="attend-btn">
 <input type="radio" name="attend" value="Буду" required>
-Буду присутствовать
+<span>Буду присутствовать</span>
 </label>
 
-<label>
+<label class="attend-btn">
 <input type="radio" name="attend" value="Не смогу">
-К сожалению не смогу
+<span>Не смогу прийти</span>
 </label>
+
 </div>
 
 <div id="extraQuestions" class="extra">
@@ -420,6 +558,7 @@ background:#bfa37d;
 <span class="radio"></span>
 <span>Буду с семьёй</span>
 </label>
+
 </div>
 
 <div class="question">
@@ -452,16 +591,16 @@ background:#bfa37d;
 <label class="check-item">
 <input type="checkbox" name="drink" value="Водка">
 <span class="checkmark"></span>
-<span class="text">Водка</span>
+<span>Водка</span>
 </label>
 
 </div>
 
-</div>
+<textarea name="message" placeholder="Пожелание молодожёнам"></textarea>
 
-<textarea name="message" placeholder="Ваше пожелание молодожёнам"></textarea>
-
-<button type="submit">Отправить</button>
+<button class="send-btn" type="submit">
+<span>Отправить</span>
+</button>
 
 </form>
 
@@ -509,7 +648,24 @@ background:#bfa37d;
 	e.target.reset()
 	
 	})
-	
+
+const attendRadios=document.querySelectorAll('input[name="attend"]')
+const extra=document.getElementById("extraQuestions")
+
+attendRadios.forEach(r=>{
+
+r.addEventListener("change",()=>{
+
+if(r.value==="Буду" && r.checked){
+extra.classList.add("show")
+}else{
+extra.classList.remove("show")
+}
+
+})
+
+})
+		
 	const canvas=document.getElementById("petals")
 	const ctx=canvas.getContext("2d")
 	
