@@ -5,200 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Валерия & Стас</title>
     
-    <!-- Подключаем шрифты: Great Vibes для заголовка и Playfair Display для текста -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">  
 
     <style>
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /* Радиальный градиент для глубины */
-            background: radial-gradient(circle at top, #ffffff 0%, #faf7f5 50%, #f0edea 100%);
+            /* Цвет "Слоновая кость" с мягким переходом в "Шалфей" */
+            background: linear-gradient(180deg, #fdfbf7 0%, #f4f1ea 100%);
             background-attachment: fixed;
-            color: #4a4440;
+            color: #5d574f; /* Мягкий серо-коричневый */
             text-align: center;
-            overflow-x: hidden;
         }
 
         .container {
-            padding: 60px 20px;
-            max-width: 700px;
+            padding: 50px 20px;
+            max-width: 650px;
             margin: auto;
-            animation: fadeInUp 1.2s ease-out forwards;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive !important;
-            /* Адаптивный размер заголовка */
-            font-size: clamp(45px, 12vw, 90px);
-            line-height: 1.2;
-            font-weight: 400;
-            margin: 0 auto 20px;
-            white-space: nowrap;
-            display: block;
-            
-            /* Градиент из палитры дресс-кода */
-            background: linear-gradient(to right, #6b3c2f, #a38b7a, #d7d0c7);
+            font-size: clamp(45px, 12vw, 85px);
+            line-height: 1.1;
+            margin: 0 0 15px;
+            /* Нежный градиент: от цвета какао до античного золота */
+            background: linear-gradient(to right, #8e7d71, #bdae9c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
+            white-space: nowrap;
         }
 
         p {
             font-family: 'Playfair Display', serif;
-            font-size: 19px;
+            font-size: 18px;
             font-style: italic;
-            color: #5a3e36;
-            margin: 15px 0;
+            color: #7a7169;
+            margin: 10px 0;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #6b3c2f;
+            letter-spacing: 2px;
+            font-size: 20px;
+            color: #8c8279; /* Приглушенный рустик-тон */
+            margin-bottom: 25px;
         }
 
         .date {
-            font-size: 22px;
-            font-weight: 400;
-            margin-top: 10px;
             font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         .timer {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 30px;
-            justify-content: center;
+            gap: 12px;
+            margin-top: 35px;
         }
 
         .block {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(90, 62, 54, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5); /* Эффект льна */
+            backdrop-filter: blur(3px);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .number {
-            font-size: 24px;
-            font-weight: 600;
-            color: #6b3c2f;
+            font-size: 22px;
+            font-weight: 400;
+            color: #8c8279;
         }
 
         .photo {
-            width: 200px;
-            height: 200px;
+            width: 190px;
+            height: 190px;
             border-radius: 50%;
             object-fit: cover;
-            margin-top: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 5px solid white;
-        }
-
-        .colors {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
             margin-top: 20px;
+            border: 6px solid #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .color {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .gallery img {
             width: 100%;
-            border-radius: 15px;
-            transition: transform 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.02);
+            border-radius: 4px; /* Более строгие формы для рустика */
+            filter: sepia(10%) contrast(95%); /* Легкий винтажный фильтр */
         }
 
         .map {
-            margin-top: 20px;
-            border-radius: 15px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            font-family: 'Montserrat';
-            box-sizing: border-box;
+            filter: grayscale(20%) opacity(90%);
         }
 
         button {
-            width: 100%;
-            padding: 16px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 12px;
-            background: #6b3c2f; /* Коричневый из палитры */
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
+            background: #a3988e; /* Оливково-бежевый */
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            transition: 0.4s;
         }
 
         button:hover {
-            background: #5a3e36;
-            transform: translateY(-2px);
+            background: #8c8279;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid #e2ddd3;
         }
 
         canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        @media(min-width: 768px) {
-            .timer {
-                grid-template-columns: repeat(4, 120px);
-            }
+            z-index: 1;
         }
     </style>
 </head>
-
 <body>
 
 <canvas id="petals"></canvas>
 
 <div class="container">
     <h1>Валерия & Стас</h1>
-    <p>Приглашаем на нашу свадьбу</p>
-    <div class="date">5 сентября 2026</div>
+    <p>Начинаем нашу общую историю</p>
+    <div class="date">05.09.2026</div>
     
     <div class="timer">
         <div class="block"><div id="d" class="number"></div>дней</div>
@@ -210,59 +162,30 @@
 
 <div class="container">
     <h2>Дорогой гость</h2>
-    <p>Мы рады сообщить Вам, что 05.09.2026 состоится самое главное торжество в нашей жизни — день нашей свадьбы! Приглашаем Вас разделить с нами радость этого незабываемого дня.</p>
-    <img class="photo" src="photo.jpg" alt="Мы">
+    <p>Мы будем счастливы разделить с вами тепло этого дня. Наша свадьба — это праздник любви в кругу самых близких.</p>
+    <img class="photo" src="photo.jpg">
 </div>
 
 <div class="container">
-    <h2>Дресс-код</h2>
-    <p>Будем признательны, если при выборе нарядов вы придержитесь нашей палитры:</p>
-    <div class="colors">
+    <h2>Палитра торжества</h2>
+    <div class="colors" style="display: flex; justify-content: center; gap: 15px;">
         <div class="color" style="background:#d7d0c7"></div>
-        <div class="color" style="background:#efe5c8"></div>
-        <div class="color" style="background:#bcd4d6"></div>
-        <div class="color" style="background:#6b3c2f"></div>
+        <div class="color" style="background:#e4ddd3"></div>
+        <div class="color" style="background:#c2c9c2"></div> <!-- Пыльная оливка -->
+        <div class="color" style="background:#a3988e"></div>
     </div>
 </div>
 
 <div class="container">
-    <h2>Фотогалерея</h2>
-    <div class="gallery">
-        <img src="photo1.jpg">
-        <img src="photo2.jpg">
-        <img src="photo3.jpg">
-        <img src="photo4.jpg">
-    </div>
-</div>
-
-<div class="container">
-    <h2>Место проведения</h2>
-    <div class="map">
-        <iframe src="https://maps.google.com" width="100%" height="300" frameborder="0"></iframe>
-    </div>
-</div>
-
-<div class="container">
-    <h2>Подтвердите присутствие</h2>
+    <h2>Подтверждение</h2>
     <form id="form">
         <input name="name" placeholder="Ваше имя" required>
-        <textarea name="message" placeholder="Ваши пожелания"></textarea>
-        <label style="display: block; margin: 10px 0; font-family: 'Playfair Display';">
-            <input type="checkbox" name="moneyGift" style="width: auto;"> Предпочту денежный подарок
-        </label>
-        <div style="text-align:left; margin-top:20px;">
-            <p style="font-style: normal; font-weight: bold;">Какой алкоголь предпочитаете?</p>
-            <label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br>
-            <label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br>
-            <label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br>
-            <label><input type="radio" name="drink" value="Крепкие напитки"> Крепкие напитки</label>
-        </div>
-        <button type="submit">Отправить ответ</button>
+        <textarea name="message" placeholder="Несколько слов для нас..."></textarea>
+        <button type="submit">Отправить</button>
     </form>
 </div>
 
 <script>
-    // Таймер обратного отсчета
     const wedding = new Date("2026-09-05T14:00:00");
     const d = document.getElementById("d"), h = document.getElementById("h"), m = document.getElementById("m"), s = document.getElementById("s");
 
@@ -275,36 +198,24 @@
         s.innerText = Math.floor(diff / 1000) % 60;
     }, 1000);
 
-    // Лепестки
     const canvas = document.getElementById("petals");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let petals = [];
-    for(let i=0; i<25; i++) {
-        petals.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*4+2, d: Math.random()*1+0.5 });
+    for(let i=0; i<30; i++) {
+        petals.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*3+1, d: Math.random()*0.5+0.2 });
     }
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(215, 208, 199, 0.5)"; 
+        ctx.fillStyle = "rgba(189, 174, 156, 0.3)"; /* Пыльца */
         petals.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-            ctx.fill();
-            p.y += p.d;
-            if(p.y > canvas.height) p.y = -10;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+            p.y += p.d; if(p.y > canvas.height) p.y = -10;
         });
         requestAnimationFrame(draw);
     }
     draw();
-
-    // Обработка формы
-    const scriptURL = "PASTE_SCRIPT_URL";
-    document.getElementById("form").addEventListener("submit", e => {
-        e.preventDefault();
-        alert("Спасибо! Мы получили ваш ответ ❤️");
-        e.target.reset();
-    });
 </script>
 
 </body>
