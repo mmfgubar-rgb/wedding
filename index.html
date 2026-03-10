@@ -34,15 +34,13 @@ h1 {
     color: #5a3e36;
     letter-spacing: 2px;
     margin: 20px 0;
-    
-    /* Запрет переноса на новую строку */
-    white-space: nowrap; 
-    /* На случай очень длинных имен — не даст сломать верстку */
-    overflow: hidden;
-    text-overflow: ellipsis; 
-
-    /* Мягкая кофейная тень: смещение 2px вправо/вниз и размытие 4px */
     text-shadow: 2px 2px 4px rgba(90, 62, 54, 0.2);
+
+    /* Страховка от вылета за границы экрана */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px; /* Небольшой отступ, чтобы буквы не прижимались к краям */
 }
     
 h2 {
