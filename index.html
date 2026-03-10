@@ -75,6 +75,22 @@ border-radius:12px;
 box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
+p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; /* Оптимальный размер для этого шрифта */
+    line-height: 1.6; /* Увеличенный межстрочный интервал для легкости */
+    color: #4a4a4a;
+    max-width: 90%; /* Чтобы текст не прилипал к краям на смартфонах */
+    margin: 0 auto 15px auto;
+    font-style: italic; /* Курсив придаст тексту вид личного письма */
+}
+
+/* Применим этот же стиль к подписям в таймере и форме */
+.block, .poll p, label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: normal; /* Здесь лучше оставить прямой шрифт для читаемости */
+}
 .number {
     font-family: 'Forum', serif;
     font-size: 28px;
