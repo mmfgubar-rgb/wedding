@@ -27,21 +27,23 @@ margin:auto;
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 64px; /* Можно немного уменьшить, если не влезает на мобильных */
+  /* clamp(минимум, предпочтение, максимум) */
+  font-size: clamp(35px, 11vw, 90px); 
   line-height: 1.3;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   
-  /* Настройка градиента */
+  /* Градиент */
   background: linear-gradient(45deg, #5a3e36, #b8978e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-
-  /* В одну строку */
+  
+  /* Центрирование и предотвращение переноса */
   display: block;
   white-space: nowrap;
+  margin: 0 auto 20px;
+  overflow: visible;
 }
 
 
@@ -148,11 +150,6 @@ pointer-events:none;
 }
 
 @media(min-width:768px){
-
-h1{
-font-size:90px;
-font-size: 12vw;
-}
 
 .timer{
 grid-template-columns:repeat(4,120px);
