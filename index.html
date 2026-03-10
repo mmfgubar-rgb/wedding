@@ -10,7 +10,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">  
 
 <style>
+  
+/* Описываем саму анимацию */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Смещение вниз на 20px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Возврат в исходную точку */
+  }
+}
 
+/* Применяем её к заголовку */
+h1 {
+  /* ... ваши предыдущие стили (градиент, clamp и т.д.) ... */
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Опционально: добавьте небольшую задержку для текста под заголовком */
+.container p:first-of-type {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 0.5s forwards; /* Появится на 0.5с позже */
+}
+  
 body{
 margin:0;
 font-family:Montserrat;
