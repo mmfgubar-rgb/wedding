@@ -239,12 +239,35 @@ button[type="submit"]:hover {
 }
 
 /* Стили для разделительной линии (тег <hr>) */
-hr {
+/*hr {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(209,180,140,0), rgba(209,180,140,0.75), rgba(209,180,140,0));
     margin: 60px 0;
+}*/
+.separator-styled {
+    text-align: center;
+    border: 0;
+    height: 1px;
+    /* Градиент от прозрачного к золотистому */
+    background-image: linear-gradient(to right, rgba(209, 180, 140, 0), rgba(209, 180, 140, 0.75), rgba(209, 180, 140, 0));
+    margin: 60px 0; /* Отступы: 60px сверху/снизу, 0 по бокам */
+    position: relative;
 }
+
+.separator-styled::after {
+    content: "✦"; 
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем ровно посередине */
+    background: #fff; /* Цвет фона вашего сайта */
+    padding: 0 15px;
+    color: #d1b48c; /* Цвет искорки */
+    font-size: 20px;
+}
+
 /*-------------------------------------------------------*/
 .poll{
 text-align:left;
@@ -317,7 +340,8 @@ justify-content:center;
 
 <div class="container">
 
-
+<!-- Вставляем линию здесь -->
+<div class="separator-styled"></div>
     
 <h2>Дорогой гость</h2>
 
