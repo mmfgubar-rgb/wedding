@@ -437,7 +437,7 @@ stroke-linecap="round"/>
 	
 	/* отправка формы */
 	
-	const scriptURL="PASTE_SCRIPT_URL"
+	const scriptURL="https://script.google.com/macros/s/AKfycbxlWmmIFXx_tt0aBYtxjDaKZ5aXW3jfOxUbx-ev0nzLD2CkAZMnO51vH6Yu7uA57ecj/exec"
 	
 	document.getElementById("form").addEventListener("submit",e=>{
 	
@@ -445,12 +445,15 @@ stroke-linecap="round"/>
 	
 	let f=new FormData(e.target)
 	
-	let data={
-	name:f.get("name"),
-	message:f.get("message"),
-	moneyGift:f.get("moneyGift")?"Да":"Нет",
-	drink:f.getAll("drink")
-	}
+let data={
+name:f.get("name"),
+attend:f.get("attend"),
+moneyGift:f.get("moneyGift")?"Да":"Нет",
+guests:f.get("guests"),
+drink:f.getAll("drink").join(", "),
+message:f.get("message"),
+new Date()
+}
 	
 	fetch(scriptURL,{
 	method:"POST",
