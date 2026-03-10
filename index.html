@@ -41,12 +41,6 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis; 
 }
-
-/*h2{
-font-family:'Playfair Display';
-font-weight:400;
-margin-bottom:20px;
-}*/
     
 h2 {
     /* "Forum" — очень красивый шрифт в стиле классических римских надписей */
@@ -59,9 +53,12 @@ h2 {
     margin-bottom: 25px;
 }
 
-.date{
-font-size:20px;
-margin-top:10px;
+.date {
+    font-family: 'Forum', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    color: #5a3e36;
 }
 
 .timer{
@@ -78,9 +75,11 @@ border-radius:12px;
 box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-.number{
-font-size:24px;
-font-weight:600;
+.number {
+    font-family: 'Forum', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #8c7b74;
 }
 
 .photo{
@@ -123,24 +122,16 @@ border-radius:10px;
 overflow:hidden;
 }
 
-input,textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ddd;
-font-family:Montserrat;
+/* Стили для полей формы, чтобы они не выбивались */
+input, textarea, button {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
 }
 
-button{
-width:100%;
-padding:14px;
-margin-top:15px;
-border:none;
-border-radius:10px;
-background:#8c7b74;
-color:white;
-font-size:16px;
+button {
+    font-family: 'Forum', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .poll{
