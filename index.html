@@ -1,532 +1,534 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Валерия & Стас</title>
+    <title>Валерия & Стас</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-
-body{
-margin:0;
-font-family:Montserrat;
-background:#faf7f5;
-color:#333;
-text-align:center;
-}
-
-.container{
-padding:60px 20px;
-max-width:700px;
-margin:auto;
-}
-
-h1 {
-    font-family: 'Great Vibes', cursive;
-    /* Шрифт будет меняться от 40px до 90px в зависимости от ширины экрана */
-    font-size: clamp(40px, 12vw, 90px); 
-    line-height: 1.3;
-    font-weight: 400;
-    color: #5a3e36;
-    letter-spacing: 2px;
-    margin: 20px 0;
-    /*text-shadow: 2px 2px 4px rgba(90, 62, 54, 0.2);*/
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
-
-    /* Страховка от вылета за границы экрана */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 10px; /* Небольшой отступ, чтобы буквы не прижимались к краям */
-}
-    
-h2 {
-    /* "Forum" — очень красивый шрифт в стиле классических римских надписей */
-    font-family: 'Forum', serif;
-    font-weight: 400;
-    font-size: 32px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #8c7b74;
-    margin-bottom: 25px;
-}
-
-.date {
-    font-family: 'Forum', serif;
-    font-size: 24px;
-    letter-spacing: 2px;
-    margin-top: 10px;
-    color: #5a3e36;
-}
-
-.timer{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin-top:30px;
-}
-
-.block{
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px; /* Оптимальный размер для этого шрифта */
-    line-height: 1.6; /* Увеличенный межстрочный интервал для легкости */
-    color: #4a4a4a;
-    max-width: 90%; /* Чтобы текст не прилипал к краям на смартфонах */
-    margin: 0 auto 15px auto;
-    font-style: italic; /* Курсив придаст тексту вид личного письма */
-}
-    
-.address {
-    font-family: 'Forum', serif; /* Используем тот же шрифт, что и в заголовках */
-    font-size: 22px;
-    font-style: normal; /* Убираем курсив, если он задан для обычных <p> */
-    color: #5a3e36;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    letter-spacing: 1px;
-}
-
-/* Применим этот же стиль к подписям в таймере и форме */
-.block, .poll p, label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-style: normal; /* Здесь лучше оставить прямой шрифт для читаемости */
-}
-.number {
-    font-family: 'Forum', serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: #8c7b74;
-}
-
-.photo{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-margin-top:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.colors{
-display:flex;
-justify-content:center;
-gap:12px;
-margin-top:20px;
-}
-
-.color{
-width:35px;
-height:35px;
-border-radius:50%;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-
-.map{
-margin-top:20px;
-border-radius:10px;
-overflow:hidden;
-}
-
-/* Стили для полей формы, чтобы они не выбивались */
-input, textarea, button {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-}
-
-button {
-    font-family: 'Forum', serif;
-    text-trans: uppercase;
-    letter-spacing: 2px;
-}
-/*-------------------------------------------------------*/
-/* Контейнер формы для центрирования и отступов */
-.form-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Легкая тень для объема */
-}
-
-/* Стили заголовков внутри формы */
-.form-container h2 {
-    font-family: 'Georgia', serif;
-    color: #5d5d5d;
-    margin-bottom: 25px;
-}
-
-/* Поля ввода (Имя, Телефон и т.д.) */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-sizing: border-box; /* Чтобы padding не раздувал ширину */
-}
-
-/* Состояние при наведении и клике */
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: #d1b48c; /* Золотистый акцент */
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(209, 180, 140, 0.3);
-}
-
-/* Стили для опросника (радиокнопки и чекбоксы) */
-.question-block {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.question-block label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: #444;
-}
-
-/* Красивая кнопка отправки */
-button[type="submit"], 
-.submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: #d1b48c; /* Цвет шампань/золото */
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    margin-top: 10px;
-}
-
-button[type="submit"]:hover {
-    background: #bfa37d;
-    transform: translateY(-2px); /* Эффект нажатия */
-}
-
-/* Стили для разделительной линии (тег <hr>) */
-
-.separator-styled {
-    text-align: center;
-    border: 0;
-    height: 1px;
-    /* Градиент от прозрачного к золотистому */
-    background-image: linear-gradient(to right, rgba(209, 180, 140, 0), rgba(209, 180, 140, 0.75), rgba(209, 180, 140, 0));
-    margin: 20px 0; /* Отступы: 20px сверху/снизу, 0 по бокам */
-    position: relative;
-}
-
-.separator-styled::after {
-    content: "✦"; 
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Центрируем ровно посередине */
-    background: #fff; /* Цвет фона вашего сайта */
-    padding: 0 15px;
-    color: #d1b48c; /* Цвет искорки */
-    font-size: 20px;
-}
-
-/*-------------------------------------------------------*/
-.poll{
-text-align:left;
-margin-top:10px;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-pointer-events:none;
-}
-
-@media(min-width:768px){
-
-h1{
-font-size:90px;
-}
-
-.timer{
-grid-template-columns:repeat(4,120px);
-justify-content:center;
-}
-
-}
-
-</style>
+    <style>
+        body{
+        margin:0;
+        font-family:Montserrat;
+        background:#faf7f5;
+        color:#333;
+        text-align:center;
+        }
+        
+        .container{
+        padding:60px 20px;
+        max-width:700px;
+        margin:auto;
+        }
+        
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            /* Шрифт будет меняться от 40px до 90px в зависимости от ширины экрана */
+            font-size: clamp(40px, 12vw, 90px); 
+            line-height: 1.3;
+            font-weight: 400;
+            color: #5a3e36;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            /*text-shadow: 2px 2px 4px rgba(90, 62, 54, 0.2);*/
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
+        
+            /* Страховка от вылета за границы экрана */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 10px; /* Небольшой отступ, чтобы буквы не прижимались к краям */
+        }
+            
+        h2 {
+            /* "Forum" — очень красивый шрифт в стиле классических римских надписей */
+            font-family: 'Forum', serif;
+            font-weight: 400;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #8c7b74;
+            margin-bottom: 25px;
+        }
+        
+        .date {
+            font-family: 'Forum', serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            color: #5a3e36;
+        }
+        
+        .timer{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:10px;
+        margin-top:30px;
+        }
+        
+        .block{
+        background:white;
+        padding:15px;
+        border-radius:12px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px; /* Оптимальный размер для этого шрифта */
+            line-height: 1.6; /* Увеличенный межстрочный интервал для легкости */
+            color: #4a4a4a;
+            max-width: 90%; /* Чтобы текст не прилипал к краям на смартфонах */
+            margin: 0 auto 15px auto;
+            font-style: italic; /* Курсив придаст тексту вид личного письма */
+        }
+            
+        .address {
+            font-family: 'Forum', serif; /* Используем тот же шрифт, что и в заголовках */
+            font-size: 22px;
+            font-style: normal; /* Убираем курсив, если он задан для обычных <p> */
+            color: #5a3e36;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+        
+        /* Применим этот же стиль к подписям в таймере и форме */
+        .block, .poll p, label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-style: normal; /* Здесь лучше оставить прямой шрифт для читаемости */
+        }
+        .number {
+            font-family: 'Forum', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #8c7b74;
+        }
+        
+        .photo{
+        width:180px;
+        height:180px;
+        border-radius:50%;
+        object-fit:cover;
+        margin-top:20px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .colors{
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        margin-top:20px;
+        }
+        
+        .color{
+        width:35px;
+        height:35px;
+        border-radius:50%;
+        }
+        
+        .gallery{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        margin-top:20px;
+        }
+        
+        .gallery img{
+        width:100%;
+        border-radius:10px;
+        }
+        
+        .map{
+        margin-top:20px;
+        border-radius:10px;
+        overflow:hidden;
+        }
+        
+        /* Стили для полей формы, чтобы они не выбивались */
+        input, textarea, button {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+        }
+        
+        button {
+            font-family: 'Forum', serif;
+            text-trans: uppercase;
+            letter-spacing: 2px;
+        }
+        /*-------------------------------------------------------*/
+        /* Контейнер формы для центрирования и отступов */
+        .form-container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Легкая тень для объема */
+        }
+        
+        /* Стили заголовков внутри формы */
+        .form-container h2 {
+            font-family: 'Georgia', serif;
+            color: #5d5d5d;
+            margin-bottom: 25px;
+        }
+        
+        /* Поля ввода (Имя, Телефон и т.д.) */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* Чтобы padding не раздувал ширину */
+        }
+        
+        /* Состояние при наведении и клике */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #d1b48c; /* Золотистый акцент */
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(209, 180, 140, 0.3);
+        }
+        
+        /* Стили для опросника (радиокнопки и чекбоксы) */
+        .question-block {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .question-block label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #444;
+        }
+        
+        /* Красивая кнопка отправки */
+        button[type="submit"], 
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #d1b48c; /* Цвет шампань/золото */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+        
+        button[type="submit"]:hover {
+            background: #bfa37d;
+            transform: translateY(-2px); /* Эффект нажатия */
+        }
+        
+        /* Стили для разделительной линии (тег <hr>) */
+        
+        .separator-styled {
+            text-align: center;
+            border: 0;
+            height: 1px;
+            /* Градиент от прозрачного к золотистому */
+            background-image: linear-gradient(to right, rgba(209, 180, 140, 0), rgba(209, 180, 140, 0.75), rgba(209, 180, 140, 0));
+            margin: 20px 0; /* Отступы: 20px сверху/снизу, 0 по бокам */
+            position: relative;
+        }
+        
+        .separator-styled::after {
+            content: "✦"; 
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Центрируем ровно посередине */
+            background: #fff; /* Цвет фона вашего сайта */
+            padding: 0 15px;
+            color: #d1b48c; /* Цвет искорки */
+            font-size: 20px;
+        }
+        
+        /*-------------------------------------------------------*/
+        .poll{
+        text-align:left;
+        margin-top:10px;
+        }
+        
+        canvas{
+        position:fixed;
+        top:0;
+        left:0;
+        pointer-events:none;
+        }
+        
+        @media(min-width:768px){
+        
+        h1{
+        font-size:90px;
+        }
+        
+        .timer{
+        grid-template-columns:repeat(4,120px);
+        justify-content:center;
+        }
+        
+        }
+    </style>
 </head>
 
 <body>
 
-<canvas id="petals"></canvas>
+    <canvas id="petals"></canvas>
 
-<div class="container">
+    <div class="container">
 
-<h1>Валерия & Стас</h1>
-  
-<p>Приглашаем на нашу свадьбу</p>
+        <h1>Валерия & Стас</h1>
 
-<div class="date">5 сентября 2026</div>
+        <p>Приглашаем на нашу свадьбу</p>
 
-<div class="date">Свадьба состоится через:</div>
+        <div class="date">5 сентября 2026</div>
+
+        <div class="date">Свадьба состоится через:</div>
 
 
-<div class="timer">
+        <div class="timer">
 
-<div class="block">
-<div id="d" class="number"></div>
-дней
-</div>
+            <div class="block">
+                <div id="d" class="number"></div>
+                дней
+            </div>
 
-<div class="block">
-<div id="h" class="number"></div>
-часов
-</div>
+            <div class="block">
+                <div id="h" class="number"></div>
+                часов
+            </div>
 
-<div class="block">
-<div id="m" class="number"></div>
-мин
-</div>
+            <div class="block">
+                <div id="m" class="number"></div>
+                мин
+            </div>
 
-<div class="block">
-<div id="s" class="number"></div>
-сек
-</div>
+            <div class="block">
+                <div id="s" class="number"></div>
+                сек
+            </div>
 
-</div>
+        </div>
 
-</div>
-
-<!-- Вставляем линию здесь -->
-<div class="separator-styled"></div>
-    
-<div class="container">
-
-<h2>Дорогой гость</h2>
-
-<p>Мы рабды сообщить Вам, что 05.09.2026 состоится самое главное торжество в нашей жизни - день нашей свадьбы! Приглашаем Вас разделить с нами радость этого незабываемого дня.</p>
-
-<img class="photo" src="photo.jpg">
-
-</div>
+    </div>
 
     <!-- Вставляем линию здесь -->
-<div class="separator-styled"></div>
-    
-<div class="container">
-    
-<h2>Дресс-код</h2>
+    <div class="separator-styled"></div>
 
-<!-- Добавленный блок с тектом -->
-<p>Будем благодарны, если при выборе нарядов на наше торжество, Вы будете придерживаться следующих цветовых стилей:</p>
-    
-<div class="colors">
+    <div class="container">
 
-<div class="color" style="background:#d7d0c7"></div>
-<div class="color" style="background:#efe5c8"></div>
-<div class="color" style="background:#bcd4d6"></div>
-<div class="color" style="background:#6b3c2f"></div>
+        <h2>Дорогой гость</h2>
 
-</div>
+        <p>Мы рабды сообщить Вам, что 05.09.2026 состоится самое главное торжество в нашей жизни - день нашей свадьбы! Приглашаем Вас разделить с нами радость этого незабываемого дня.</p>
 
-</div>
-    
-<!-- Вставляем линию здесь -->
-<div class="separator-styled"></div>
-    
-<div class="container">
+        <img class="photo" src="photo.jpg">
 
-    
-<h2>Фотогалерея</h2>
+    </div>
 
-<div class="gallery">
+    <!-- Вставляем линию здесь -->
+    <div class="separator-styled"></div>
 
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
+    <div class="container">
 
-</div>
+        <h2>Дресс-код</h2>
 
-</div>
-    
-<!-- Вставляем линию здесь -->
-<div class="separator-styled"></div>
-    
-<div class="container">
+        <!-- Добавленный блок с тектом -->
+        <p>Будем благодарны, если при выборе нарядов на наше торжество, Вы будете придерживаться следующих цветовых стилей:</p>
+
+        <div class="colors">
+
+            <div class="color" style="background:#d7d0c7"></div>
+            <div class="color" style="background:#efe5c8"></div>
+            <div class="color" style="background:#bcd4d6"></div>
+            <div class="color" style="background:#6b3c2f"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Вставляем линию здесь -->
+    <div class="separator-styled"></div>
+
+    <div class="container">
 
 
-    
-<h2>Время и место проведения</h2>
+        <h2>Фотогалерея</h2>
+
+        <div class="gallery">
+
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+            <img src="photo4.jpg">
+
+        </div>
+
+    </div>
+
+    <!-- Вставляем линию здесь -->
+    <div class="separator-styled"></div>
+
+    <div class="container">
+
+
+
+        <h2>Время и место проведения</h2>
 
         <!-- Добавленный блок с адресом -->
-    <p class="address">14:00, ресторан "Дом Палешука" АГ. Лясковичи
-    </p>
-    
-<div class="map">
+        <p class="address">14:00, ресторан "Дом Палешука" АГ. Лясковичи
+        </p>
 
-<iframe
-src="https://maps.google.com/maps?q=Ляховичи&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%"
-height="250"
-frameborder="0">
-</iframe>
+        <div class="map">
 
-</div>
+            <iframe src="https://maps.google.com/maps?q=Ляховичи&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" frameborder="0">
+            </iframe>
 
-</div>
+        </div>
+
+    </div>
 
     <!-- Вставляем линию здесь -->
-<div class="separator-styled"></div>
-    
-<div class="container">
-    
-<h2>Подтвердите присутствие</h2>
+    <div class="separator-styled"></div>
 
-<input name="name" placeholder="Ваше имя" required>
+    <div class="container">
 
-<textarea name="message" placeholder="Сообщение"></textarea>
+        <h2>Подтвердите присутствие</h2>
 
-<label>
-<input type="checkbox" name="moneyGift">
-Денежный подарок
-</label>
+        <input name="name" placeholder="Ваше имя" required>
 
-<div class="poll">
+        <textarea name="message" placeholder="Сообщение"></textarea>
 
-<p>Какой алкоголь предпочитаете?</p>
+        <label>
+            <input type="checkbox" name="moneyGift"> Денежный подарок
+        </label>
 
-<label><input type="radio" name="drink" value="Красное вино"> Красное вино</label><br>
-<label><input type="radio" name="drink" value="Белое вино"> Белое вино</label><br>
-<label><input type="radio" name="drink" value="Шампанское"> Шампанское</label><br>
-<label><input type="radio" name="drink" value="Виски"> Виски</label><br>
-<label><input type="radio" name="drink" value="Водка"> Водка</label>
+        <div class="poll">
 
-</div>
+            <p>Какой алкоголь предпочитаете?</p>
 
-<button>Отправить</button>
+            <label>
+                <input type="radio" name="drink" value="Красное вино"> Красное вино</label>
+            <br>
+            <label>
+                <input type="radio" name="drink" value="Белое вино"> Белое вино</label>
+            <br>
+            <label>
+                <input type="radio" name="drink" value="Шампанское"> Шампанское</label>
+            <br>
+            <label>
+                <input type="radio" name="drink" value="Виски"> Виски</label>
+            <br>
+            <label>
+                <input type="radio" name="drink" value="Водка"> Водка</label>
 
-</form>
+        </div>
 
-</div>
+        <button>Отправить</button>
 
-<script>
+        </form>
 
-const wedding=new Date("2026-09-05T14:00:00")
+    </div>
 
-setInterval(()=>{
-
-let now=new Date()
-let diff=wedding-now
-
-d.innerText=Math.floor(diff/86400000)
-h.innerText=Math.floor(diff/3600000)%24
-m.innerText=Math.floor(diff/60000)%60
-s.innerText=Math.floor(diff/1000)%60
-
-},1000)
-
-const scriptURL="PASTE_SCRIPT_URL"
-
-document.getElementById("form").addEventListener("submit",e=>{
-
-e.preventDefault()
-
-let f=new FormData(e.target)
-
-let data={
-name:f.get("name"),
-message:f.get("message"),
-moneyGift:f.get("moneyGift")?"Да":"Нет",
-drink:f.get("drink")
-}
-
-fetch(scriptURL,{
-method:"POST",
-body:JSON.stringify(data)
-})
-
-alert("Спасибо! Ответ отправлен ❤️")
-
-e.target.reset()
-
-})
-
-const canvas=document.getElementById("petals")
-const ctx=canvas.getContext("2d")
-
-canvas.width=innerWidth
-canvas.height=innerHeight
-
-let petals=[]
-
-for(let i=0;i<25;i++){
-petals.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*4+2,
-d:Math.random()*2
-})
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-ctx.fillStyle="rgba(255,182,193,0.7)"
-
-petals.forEach(p=>{
-ctx.beginPath()
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
-ctx.fill()
-
-p.y+=p.d
-if(p.y>canvas.height)p.y=0
-})
-
-requestAnimationFrame(draw)
-
-}
-
-draw()
-
-</script>
+    <script>
+        const wedding=new Date("2026-09-05T14:00:00")
+        
+        setInterval(()=>{
+        
+        let now=new Date()
+        let diff=wedding-now
+        
+        d.innerText=Math.floor(diff/86400000)
+        h.innerText=Math.floor(diff/3600000)%24
+        m.innerText=Math.floor(diff/60000)%60
+        s.innerText=Math.floor(diff/1000)%60
+        
+        },1000)
+        
+        const scriptURL="PASTE_SCRIPT_URL"
+        
+        document.getElementById("form").addEventListener("submit",e=>{
+        
+        e.preventDefault()
+        
+        let f=new FormData(e.target)
+        
+        let data={
+        name:f.get("name"),
+        message:f.get("message"),
+        moneyGift:f.get("moneyGift")?"Да":"Нет",
+        drink:f.get("drink")
+        }
+        
+        fetch(scriptURL,{
+        method:"POST",
+        body:JSON.stringify(data)
+        })
+        
+        alert("Спасибо! Ответ отправлен ❤️")
+        
+        e.target.reset()
+        
+        })
+        
+        const canvas=document.getElementById("petals")
+        const ctx=canvas.getContext("2d")
+        
+        canvas.width=innerWidth
+        canvas.height=innerHeight
+        
+        let petals=[]
+        
+        for(let i=0;i<25;i++){
+        petals.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*4+2,
+        d:Math.random()*2
+        })
+        }
+        
+        function draw(){
+        
+        ctx.clearRect(0,0,canvas.width,canvas.height)
+        
+        ctx.fillStyle="rgba(255,182,193,0.7)"
+        
+        petals.forEach(p=>{
+        ctx.beginPath()
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
+        ctx.fill()
+        
+        p.y+=p.d
+        if(p.y>canvas.height)p.y=0
+        })
+        
+        requestAnimationFrame(draw)
+        
+        }
+        
+        draw()
+    </script>
 
 </body>
+
 </html>
